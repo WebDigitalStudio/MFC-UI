@@ -1,0 +1,37 @@
+name: Build DEV
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Gulp
+        run: npm install -g gulp
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Build Angular Production
+        run: yarn run development
