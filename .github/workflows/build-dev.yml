@@ -1,0 +1,44 @@
+name: CI/CD for Dev Branch
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Gulp
+        run: npm install -g gulp
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Angular Production
+        run: yarn run development
+
+      - name: Deploy to Staging (CD Step)
+        run: |
+          # В этом шаге вы можете добавить команды для развертывания приложения на вашем сервере или платформе.
+          # Например, если вы используете SSH для доступа к серверу, это может выглядеть как scp, rsync или ssh-команды.
