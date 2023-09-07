@@ -34,4 +34,5 @@ jobs:
         run: yarn install
 
       - name: Build Angular Production
-        run: yarn run development
+        run: ng build --prod
+
