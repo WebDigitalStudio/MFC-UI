@@ -17,30 +17,31 @@ import { AccountFooterComponent } from './layout/account-footer.component';
 // tenants
 import { TenantChangeComponent } from './tenant/tenant-change.component';
 import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.component';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        HttpClientModule,
-        HttpClientJsonpModule,
-        SharedModule,
-        ServiceProxyModule,
-        AccountRoutingModule,
-        ModalModule.forChild()
-    ],
-    declarations: [
-        AccountComponent,
-        LoginComponent,
-        RegisterComponent,
-        AccountLanguagesComponent,
-        AccountHeaderComponent,
-        AccountFooterComponent,
-        // tenant
-        TenantChangeComponent,
-        TenantChangeDialogComponent,
-    ]
-})
-export class AccountModule {
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    SharedModule,
+    ServiceProxyModule,
+    AccountRoutingModule,
+    ModalModule.forChild(),
+    CheckboxModule,
+  ],
 
-}
+  declarations: [
+    AccountComponent,
+    LoginComponent,
+    RegisterComponent,
+    AccountLanguagesComponent,
+    AccountHeaderComponent,
+    AccountFooterComponent,
+    // tenant
+    TenantChangeComponent,
+    TenantChangeDialogComponent,
+  ],
+})
+export class AccountModule {}

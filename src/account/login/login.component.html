@@ -1,5 +1,5 @@
 ﻿<div [@routerTransition]>
-  <h4 class="text-center mb-3">{{ "LogIn" | localize }}</h4>
+  <h4 class="text-center mb-3">{{ 'LogIn' | localize }}</h4>
   <form novalidate autocomplete="off" #loginForm="ngForm" (ngSubmit)="login()">
     <div class="form-group">
       <div class="input-group">
@@ -60,24 +60,32 @@
             [(ngModel)]="authService.rememberMe"
           />
           <label for="rememberMe" class="custom-control-label">
-            {{ "RememberMe" | localize }}
+            {{ 'RememberMe' | localize }}
           </label>
         </div>
       </div>
-      <div class="col-md-4">
-        <button
-          type="submit"
-          class="btn btn-primary btn-block"
-          [disabled]="!loginForm.form.valid || submitting"
-        >
-          {{ "LogIn" | localize }}
-        </button>
-      </div>
+    </div>
+    <div class="flex-row">
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+        [disabled]="!loginForm.form.valid || submitting"
+      >
+        {{ 'LogIn' | localize }}
+      </button>
     </div>
   </form>
+  <button
+    (click)="navigateToRegister()"
+    type="submit"
+    class="btn btn-primary btn-block mt-2"
+    [disabled]="!loginForm.form.valid || submitting"
+  >
+    {{ 'Register' | localize }}
+  </button>
   <p *ngIf="isSelfRegistrationAllowed" class="mb-1">
     <a [routerLink]="['../register']">
-      <i class="fa fa-plus-circle"></i> {{ "Register" | localize }}
+      <i class="fa fa-plus-circle"></i> {{ 'Register' | localize }}
     </a>
   </p>
 </div>

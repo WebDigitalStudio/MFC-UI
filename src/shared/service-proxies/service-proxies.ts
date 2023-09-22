@@ -2270,6 +2270,7 @@ export class CreateUserDto implements ICreateUserDto {
     userName: string;
     name: string;
     surname: string;
+    gender: string;
     emailAddress: string;
     isActive: boolean;
     roleNames: string[] | undefined;
@@ -2289,6 +2290,7 @@ export class CreateUserDto implements ICreateUserDto {
             this.userName = _data["userName"];
             this.name = _data["name"];
             this.surname = _data["surname"];
+            this.gender = _data["gender"];
             this.emailAddress = _data["emailAddress"];
             this.isActive = _data["isActive"];
             if (Array.isArray(_data["roleNames"])) {
@@ -2312,6 +2314,7 @@ export class CreateUserDto implements ICreateUserDto {
         data["userName"] = this.userName;
         data["name"] = this.name;
         data["surname"] = this.surname;
+        data["gender"] = this.gender;
         data["emailAddress"] = this.emailAddress;
         data["isActive"] = this.isActive;
         if (Array.isArray(this.roleNames)) {
@@ -2335,6 +2338,7 @@ export interface ICreateUserDto {
     userName: string;
     name: string;
     surname: string;
+    gender: string;
     emailAddress: string;
     isActive: boolean;
     roleNames: string[] | undefined;
@@ -2905,6 +2909,7 @@ export interface IPermissionDtoListResultDto {
 export class RegisterInput implements IRegisterInput {
     name: string;
     surname: string;
+    gender: string;
     userName: string;
     emailAddress: string;
     password: string;
@@ -2923,6 +2928,7 @@ export class RegisterInput implements IRegisterInput {
         if (_data) {
             this.name = _data["name"];
             this.surname = _data["surname"];
+            this.gender = _data["gender"];
             this.userName = _data["userName"];
             this.emailAddress = _data["emailAddress"];
             this.password = _data["password"];
@@ -2941,6 +2947,7 @@ export class RegisterInput implements IRegisterInput {
         data = typeof data === 'object' ? data : {};
         data["name"] = this.name;
         data["surname"] = this.surname;
+        data["gender"] = this.gender;
         data["userName"] = this.userName;
         data["emailAddress"] = this.emailAddress;
         data["password"] = this.password;
@@ -2959,6 +2966,7 @@ export class RegisterInput implements IRegisterInput {
 export interface IRegisterInput {
     name: string;
     surname: string;
+    gender: string;
     userName: string;
     emailAddress: string;
     password: string;
@@ -3580,6 +3588,7 @@ export class UserDto implements IUserDto {
     id: number;
     userName: string;
     name: string;
+    gender: string;
     surname: string;
     emailAddress: string;
     isActive: boolean;
@@ -3602,6 +3611,7 @@ export class UserDto implements IUserDto {
             this.id = _data["id"];
             this.userName = _data["userName"];
             this.name = _data["name"];
+            this.gender = _data["gender"];
             this.surname = _data["surname"];
             this.emailAddress = _data["emailAddress"];
             this.isActive = _data["isActive"];
@@ -3628,6 +3638,7 @@ export class UserDto implements IUserDto {
         data["id"] = this.id;
         data["userName"] = this.userName;
         data["name"] = this.name;
+        data["gender"] = this.gender;
         data["surname"] = this.surname;
         data["emailAddress"] = this.emailAddress;
         data["isActive"] = this.isActive;
@@ -3654,6 +3665,7 @@ export interface IUserDto {
     id: number;
     userName: string;
     name: string;
+    gender: string;
     surname: string;
     emailAddress: string;
     isActive: boolean;
@@ -3722,6 +3734,7 @@ export class UserLoginInfoDto implements IUserLoginInfoDto {
     id: number;
     name: string | undefined;
     surname: string | undefined;
+    gender: string | undefined;
     userName: string | undefined;
     emailAddress: string | undefined;
 
@@ -3739,6 +3752,7 @@ export class UserLoginInfoDto implements IUserLoginInfoDto {
             this.id = _data["id"];
             this.name = _data["name"];
             this.surname = _data["surname"];
+            this.gender = _data["gender"];
             this.userName = _data["userName"];
             this.emailAddress = _data["emailAddress"];
         }
@@ -3756,6 +3770,7 @@ export class UserLoginInfoDto implements IUserLoginInfoDto {
         data["id"] = this.id;
         data["name"] = this.name;
         data["surname"] = this.surname;
+        data["gender"] = this.gender;
         data["userName"] = this.userName;
         data["emailAddress"] = this.emailAddress;
         return data;
@@ -3773,6 +3788,7 @@ export interface IUserLoginInfoDto {
     id: number;
     name: string | undefined;
     surname: string | undefined;
+    gender: string | undefined;
     userName: string | undefined;
     emailAddress: string | undefined;
 }

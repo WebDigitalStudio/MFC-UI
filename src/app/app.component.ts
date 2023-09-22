@@ -4,15 +4,14 @@ import { SignalRAspNetCoreHelper } from '@shared/helpers/SignalRAspNetCoreHelper
 import { LayoutStoreService } from '@shared/layout/layout-store.service';
 
 @Component({
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent extends AppComponentBase implements OnInit {
   sidebarExpanded: boolean;
-
   constructor(
     injector: Injector,
     private renderer: Renderer2,
-    private _layoutStore: LayoutStoreService
+    private _layoutStore: LayoutStoreService,
   ) {
     super(injector);
   }
@@ -33,7 +32,7 @@ export class AppComponent extends AppComponentBase implements OnInit {
         onClick: function () {
           window.focus();
           this.close();
-        }
+        },
       });
     });
 
