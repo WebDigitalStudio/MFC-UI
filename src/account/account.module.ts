@@ -17,6 +17,7 @@ import { AccountFooterComponent } from './layout/account-footer.component';
 // tenants
 import { TenantChangeComponent } from './tenant/tenant-change.component';
 import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.component';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
     imports: [
@@ -27,7 +28,9 @@ import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.compo
         SharedModule,
         ServiceProxyModule,
         AccountRoutingModule,
-        ModalModule.forChild()
+        ButtonModule,
+        ModalModule.forChild(),
+
     ],
     declarations: [
         AccountComponent,
@@ -39,7 +42,7 @@ import { TenantChangeDialogComponent } from './tenant/tenant-change-dialog.compo
         // tenant
         TenantChangeComponent,
         TenantChangeDialogComponent,
-    ]
+    ],
 })
 export class AccountModule {
 
